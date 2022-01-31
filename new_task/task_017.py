@@ -2,24 +2,24 @@
 # Позиции хранятся в файле file.txt в одной строке одно число
 
 def f(x):
-    data = open('File.txt', 'w')
-    for i in range(-x, x + 1):
-        data.write(f'{i}\n')
+    with open('File.txt', 'w') as data:
+        for i in range(-x, x + 1):
+            data.write(f'{i}\n')
 
 
 def t(a, b):
-    data = open('File.txt', 'r')
-    count = 0
-    for i in data:
-        count += 1
-        if count == a:
-            a = int(i)
-        if count == b:
-            b = int(i)
+    with open('File.txt', 'r') as data:
+        count = 0
+        for i in data:
+            count += 1
+            if count == a:
+                a = int(i)
+            if count == b:
+                b = int(i)
     return a * b
 
 
-n = 9
+n = 10
 f(n)
 position_1 = 1
 position_2 = 12
